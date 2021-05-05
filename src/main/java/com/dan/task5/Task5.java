@@ -15,14 +15,16 @@ public class Task5 {
         } else seat.minRow = seat.maxRow / 2;
         for (int i = 1; i < chars.length; i++) {
             if (chars[i] == 'F') {
-//                int in = (seat.maxRow - seat.minRow) / 2;
                 seat.maxRow -= (seat.maxRow - seat.minRow) / 2;
             }
             if (chars[i] == 'B') {
-//                int in = (seat.maxRow - seat.minRow) / 2;
                 seat.minRow += (seat.maxRow - seat.minRow) / 2;
             }
         }
+        if (chars[6] == 'F') {
+            seat.finalRow = seat.minSeat;
+        }
+        else seat.finalRow = seat.maxSeat;
 
         System.out.println(seat);
 
@@ -33,6 +35,8 @@ public class Task5 {
         int maxRow = 126;
         int minSeat = 0;
         int maxSeat = 7;
+
+        int finalRow = 0;
 
         public Period() {
         }
