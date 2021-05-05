@@ -1,4 +1,4 @@
-package com.dan.task3;
+package com.dan.task4;
 
 public class Password {
 
@@ -8,13 +8,10 @@ public class Password {
     private String hgt;
     private String hcl;
     private String ecl;
-    private long pid;
+    private int pid;
     private int cid;
 
-    public Password() {
-    }
-
-    public Password(int byr, int iyr, int eyr, String hgt, String hcl, String ecl, long pid, int cid) {
+    public Password(int byr, int iyr, int eyr, String hgt, String hcl, String ecl, int pid, int cid) {
         this.byr = byr;
         this.iyr = iyr;
         this.eyr = eyr;
@@ -22,6 +19,41 @@ public class Password {
         this.hcl = hcl;
         this.ecl = ecl;
         this.pid = pid;
+        this.cid = cid;
+    }
+
+    public Password() {
+    }
+
+    public void setByr(int byr) {
+        this.byr = byr;
+    }
+
+    public void setIyr(int iyr) {
+        this.iyr = iyr;
+    }
+
+    public void setEyr(int eyr) {
+        this.eyr = eyr;
+    }
+
+    public void setHgt(String hgt) {
+        this.hgt = hgt;
+    }
+
+    public void setHcl(String hcl) {
+        this.hcl = hcl;
+    }
+
+    public void setEcl(String ecl) {
+        this.ecl = ecl;
+    }
+
+    public void setPid(int pid) {
+        this.pid = pid;
+    }
+
+    public void setCid(int cid) {
         this.cid = cid;
     }
 
@@ -49,7 +81,7 @@ public class Password {
         return ecl;
     }
 
-    public long getPid() {
+    public int getPid() {
         return pid;
     }
 
