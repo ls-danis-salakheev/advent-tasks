@@ -3,8 +3,21 @@ package com.dan.task8;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.stream.Collectors;
+
+/**
+ * Initial data is
+ * action   step
+ * nop +0    0
+ * acc +1    1
+ * jmp +4    2
+ * acc +3    3
+ * jmp -3    4
+ * acc -99   5
+ * acc +1    6
+ * jmp -4    7
+ * acc +6    8
+ */
 
 public class Task8 {
     public static void main(String[] args) throws IOException {
@@ -12,43 +25,41 @@ public class Task8 {
         String acc = "acc";
         String jmp = "jmp";
 
-        var collect = Files
+        var input = Files
                 .lines(Path.of("src/main/resources/task7.txt"))
                 .map(s -> s.split(" "))
                 .collect(Collectors.toList());
-        collect.forEach(strings -> System.out.println(Arrays.toString(strings)));
 
-//        int i = 10;
-//        String s = "-4";
-//        String s2 = "+5";
-//
-//        System.out.println(Integer.parseInt(s2) + i);
-//
-//        String s1 = collect.get(1)[1];
-//        System.out.println(Integer.parseInt(s) + i);
-
-        int cycle = 0;
         int accum = 0;
-        for (int i = 0, collectSize = collect.size(); i < collectSize; i++) {
-            if (collect.get(i)[0].equals(nop)) {
+        long start = 0;
+        for (int i = 0, collectSize = input.size(); i < collectSize; i++) {
+            if (input.get(i)[0].equals(nop)) {
                 continue;
             }
-            if (collect.get(i)[0].equals(acc)) {
-                accum += Integer.parseInt(collect.get(i)[1]);
+            if (input.get(i)[0].equals(acc)) {
+                accum += Integer.parseInt(input.get(i)[1]);
             }
-            if (collect.get(i)[0].equals(jmp)) {
-                i += Integer.parseInt(collect.get(i)[1]);
-                if (collect.get(i)[1].equals("-4")) {
-                    cycle++;
+            if (input.get(i)[0].equals(jmp)) {
+                int suffix = Integer.parseInt(input.get(i)[1]);
+
+                if (suffix > 0) {
+                    suffix--;
+                    i += suffix;
+                } else {
+                    i += suffix;
+                    i--;
+                }
+                if (accum == 5) {
+                    start = System.currentTimeMillis();
+                }
+
+                long finish = System.currentTimeMillis() - start;
+                if (finish == 1000) {
+                    System.out.println("Total accum for 1 sec is " + accum);
+                    break;
                 }
             }
-            if (cycle == 2) {
-                return;
-            }
         }
-
-        System.out.println(accum);
-
     }
 }
 
