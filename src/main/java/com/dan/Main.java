@@ -1,15 +1,13 @@
 package com.dan;
 
 import com.dan.runner.Runner;
-import com.dan.task2.Task2;
+import com.dan.task5.Task5;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        Runner task2 = new Task2();
-        task2.runner();
+        Runner task5 = new Task5("src/main/resources/task5.txt");
+        task5.runner();
     }
-
-
 }
 
