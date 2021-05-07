@@ -26,7 +26,7 @@ public class Task8 {
         String jmp = "jmp";
 
         var input = Files
-                .lines(Path.of("src/main/resources/task7.txt"))
+                .lines(Path.of("src/main/resources/task8.txt"))
                 .map(s -> s.split(" "))
                 .collect(Collectors.toList());
 
@@ -49,15 +49,13 @@ public class Task8 {
                     i += suffix;
                     i--;
                 }
-                if (accum == 5) {
-                    start = System.currentTimeMillis();
-                }
-
-                long finish = System.currentTimeMillis() - start;
-                if (finish == 1000) {
-                    System.out.println("Total accum for 1 sec is " + accum);
-                    break;
-                }
+            }
+            if (accum == 5) {
+                start = System.currentTimeMillis();
+            }
+            if ((System.currentTimeMillis() - start) == 1000) {
+                System.out.println("Total accum for 1 sec is " + accum);
+                break;
             }
         }
     }
