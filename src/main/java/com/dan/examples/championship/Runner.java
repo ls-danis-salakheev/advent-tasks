@@ -29,8 +29,7 @@ public class Runner {
 
         teams
                 .stream()
-                .sorted()
-                .collect(Collectors.toMap(Function.identity(), Team::getTableScore, Math::addExact, TreeMap::new))
+                .collect(Collectors.toMap(Function.identity(), Team::getTableScore, (t1, t2) -> t1, TreeMap::new))
                 .forEach((k, v) -> System.out.println(k.getName() + " with score " + v));
     }
 
