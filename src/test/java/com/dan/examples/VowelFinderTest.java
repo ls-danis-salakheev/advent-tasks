@@ -1,5 +1,6 @@
 package com.dan.examples;
 
+import com.dan.examples.vowels.VowelFinder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

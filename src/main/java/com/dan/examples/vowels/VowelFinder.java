@@ -1,4 +1,4 @@
-package com.dan.examples;
+package com.dan.examples.vowels;
 
 import java.util.ArrayList;
 import java.util.Arrays;
