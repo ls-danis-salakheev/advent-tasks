@@ -46,7 +46,6 @@ public class Runner {
                 setWinnerLoser(teams, i, j, game);
 
                 games.add(game);
-
             }
         }
         return games;

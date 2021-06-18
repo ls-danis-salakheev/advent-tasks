@@ -1,8 +1,9 @@
 package com.dan.examples.vowels;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import kotlin.Pair;
+
+import java.time.Duration;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class VowelFinder {
@@ -16,6 +17,7 @@ public class VowelFinder {
         var vov = getVowelLetterCount(strings);
 
         System.out.println(Arrays.toString(vov));
+
     }
 
     public static Integer[] getVowelLetterCount(String[] strings) {
